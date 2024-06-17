@@ -7,11 +7,11 @@
 
 Day - 1 : [17th June, 2024]
     DSA:
-        ~
-        ~
+        ~   Patterns - 22
+        ~   Basic Maths - 7
     DevOps:
-        ~
-        ~
+        ~   None
+        
 
 
 
