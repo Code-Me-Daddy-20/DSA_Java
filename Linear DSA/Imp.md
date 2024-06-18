@@ -11,6 +11,13 @@ Day - 1 : [17th June, 2024]
         ~   Basic Maths - 5
     DevOps:
         ~   None
+
+Day - 2 : [18th June, 2024]
+    DSA:
+        ~   Basic Recursion - 7
+        ~   Basic Hashing - 3
+    DevOps:
+        ~   React CurrencyConverter
         
 
 
