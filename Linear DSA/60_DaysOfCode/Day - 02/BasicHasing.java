@@ -4,7 +4,7 @@ public class BasicHasing {
     public static void main(String[] args) {
 
         // Brute Force : Storing and fetching
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         // System.out.println("Enter the array: ");
         // int[] arr = new int[5];
         // for (int i = 0; i < 5; i++) {
