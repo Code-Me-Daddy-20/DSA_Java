@@ -29,17 +29,23 @@ Day - 3 : [20th June, 2024]
     DevOps:
         ~   React Routing
 
-Day - 4 : [21th June, 2024]
+Day - 4 : [21st June, 2024]
     DSA:
         ~   Easy Arrays - 7
     DevOps:
         ~   React Context API
 
-Day - 5 : [22th June, 2024]
+Day - 5 : [22nd June, 2024]
+    DSA:
+        ~   Easy Arrays - 10
+    DevOps:
+        ~   React Context API(2)
+
+Day - 6 : [23rd June, 2024]
     DSA:
         ~   Easy Arrays - 14
     DevOps:
-        ~   React Context API(2)
+        ~   React Review
         
 
 

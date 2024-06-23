@@ -1,10 +1,11 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class EasyArrays {
     public static void main(String[] args) {
-        int[] arr = { -11, 0, 2, 0, 4, 52, 0, 1212, 1212 };
-        int[] sortArr = { -3, -2, -1, 0 };
-        int[] dupArr = { 1, 3, 3, 4, 4, 5, 5 };
+        int[] arr = { 1,1,0,1,1,0,1,1,0,0,1,1 };
+        int[] sortArr1 = { 1,2,3,4,5,7,8,9};
+        int[] sortArr2 = { 2,4,6,8,9,11};
+        int[] dupArr = { 1, 1, 3, 4, 4, 5, 5 };
         // System.out.println("Largest element in the array is: " + BruteMaxElement(arr));
         // System.out.println("Largest element in the array is: " + RecMaxElement(arr,arr.length - 1));
 
@@ -19,8 +20,20 @@ public class EasyArrays {
 
         // System.out.println("Rotate to left by d: "+ Arrays.toString(RotateeletoleftbyK(arr, arr.length, 5)));
 
-        System.out.println("Moving Zeros to end: "+ Arrays.toString(moveZerostoEnd(arr, arr.length)));
+        // System.out.println("Moving Zeros to end: "+ Arrays.toString(moveZerostoEnd(arr, arr.length)));
 
+        // System.out.println("Element present at: "+linearSearchArr(arr,1212));
+
+        // System.out.println("Missing Element in array is: "+missingNumArr(sortArr));
+
+        // System.out.println("Max consecutive 1s: "+maxCons1sArr(arr));
+
+        // System.out.println("Union of 2 sorted array: "+unionArrBrute(sortArr1, sortArr2));
+        // System.out.println("Union of 2 sorted array: "+unionArrOptimal(sortArr1, sortArr2));
+
+        // System.out.println("Single element in the array is: "+findSingleElement(dupArr));
+
+        System.out.println("Longest subarray of sum K is:"+getLongestSubarray(arr,5));
     }
 
     // 1. Largest element in an array
@@ -115,55 +128,49 @@ public class EasyArrays {
         return a;
     }
 
-
-
-
-    // 6. Rotate array to right by K 
-    // Brute Force ~ 
+    // 6. Rotate array to right by K
+    // Brute Force ~
     public static int[] RotatetorightbyK(int[] arr, int n, int k) {
         if (n == 0)
-          return new int[0];
-        
+            return new int[0];
+
         if (k > n)
             k = k % n;
         int[] temp = new int[k];
         for (int i = n - k; i < n; i++) {
-          temp[i - n + k] = arr[i];
+            temp[i - n + k] = arr[i];
         }
         for (int i = n - k - 1; i >= 0; i--) {
-          arr[i + k] = arr[i];
+            arr[i + k] = arr[i];
         }
         for (int i = 0; i < k; i++) {
-          arr[i] = temp[i];
+            arr[i] = temp[i];
         }
         return arr;
-      }
+    }
 
-      // Optimal Approach ~
-      public static void Reverse(int[] arr, int start, int end) {
+    // Optimal Approach ~
+    public static void Reverse(int[] arr, int start, int end) {
         while (start <= end) {
-          int temp = arr[start];
-          arr[start] = arr[end];
-          arr[end] = temp;
-          start++;
-          end--;
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
-      }
-      public static int[] RotateeletoleftbyK(int[] arr, int n, int k) {
+    }
+
+    public static int[] RotateeletoleftbyK(int[] arr, int n, int k) {
         Reverse(arr, 0, k - 1);
-        Reverse(arr, k , n - 1);
+        Reverse(arr, k, n - 1);
         Reverse(arr, 0, n - 1);
 
         return arr;
-      }
+    }
 
-
-
-
-
-      // 7. Move zeros to end
-      // Optimal Approach ~
-      public static int[] moveZerostoEnd(int []a, int n) {
+    // 7. Move zeros to end
+    // Optimal Approach ~
+    public static int[] moveZerostoEnd(int[] a, int n) {
         int j = -1;
         for (int i = 0; i < n; i++) {
             if (a[i] == 0) {
@@ -171,12 +178,12 @@ public class EasyArrays {
                 break;
             }
         }
-        if (j == -1) return a;
-
+        if (j == -1)
+            return a;
 
         for (int i = j + 1; i < n; i++) {
             if (a[i] != 0) {
-                
+
                 int tmp = a[i];
                 a[i] = a[j];
                 a[j] = tmp;
@@ -185,4 +192,155 @@ public class EasyArrays {
         }
         return a;
     }
-}
+
+    // 8. Linear Search an element
+    public static int linearSearchArr(int a[], int k) {
+        for (int i = 0; i < a.length; i++) {
+            if (k == a[i])
+                return i;
+        }
+        return -1;
+    }
+
+
+
+
+
+    // 9. Find the missing number in an array
+    // Optimal Approach ~
+    public static int missingNumArr(int a[]){
+        int sum1 = (a[a.length-1]*(a[a.length-1]+1))/2;
+        for(int i = 0; i < a.length ; i++)
+            sum1 -= a[i];
+        return sum1;
+    }
+
+
+
+
+
+    // 10. Count maximmum Consecutive 1s in an array
+    public static int maxCons1sArr(int a[]){
+        int c = 0;
+        int max = 0;
+        for(int i = 0; i < a.length; i++){
+            if(a[i] == 1)
+                c++;
+            else
+                c = 0;
+            max = Math.max(c,max);
+        }
+        return max;
+    }
+
+
+
+
+
+    // 11. Union of two sorted arrays
+    // Brute force ~
+    public static ArrayList<Integer> unionArrBrute(int a[], int b[]){
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        // HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        // for (int i = 0; i < a.length; i++) {
+        //     hm.put(a[i],hm.getOrDefault(a[i],0)+1);
+        // }
+        // for (int i = 0; i < b.length; i++) {
+        //     hm.put(b[i],hm.getOrDefault(b[i],0)+1);
+
+        // }
+        // for(int ele : hm.keySet())
+        // al.add(ele);
+
+        // return al;
+
+        HashSet<Integer> hs = new HashSet<Integer>();
+        for (int i = 0; i < a.length; i++) 
+            hs.add(a[i]);
+        for (int i = 0; i < b.length; i++) 
+            hs.add(b[i]);
+        for(int ele : hs)
+        al.add(ele);
+
+        return al;
+    }
+    // Optimal Approach ~
+    public static ArrayList<Integer> unionArrOptimal(int a[], int b[]){
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        int n = a.length; int m = b.length;
+        int i = 0, j = 0;
+        while(i < n && j < m){
+            if(a[i]<=b[j]){
+                if(al.size() == 0 || al.get(al.size()-1) != a[i])
+                    al.add(a[i]);
+                i++;
+            }
+            else{
+                if(al.size() == 0 || al.get(al.size()-1) != b[j])
+                    al.add(b[j]);
+                j++;
+            }
+        }
+            while (i < n) 
+            {
+              if (al.get(al.size()-1) != a[i])
+                al.add(a[i]);
+              i++;
+            }
+            while (j < m) 
+            {
+              if (al.get(al.size()-1) != b[j])
+                al.add(b[j]);
+              j++;
+            }
+          
+          return al;
+        }
+
+
+
+
+
+
+        // 12. Find the element appearing once in an array
+        // Better Approach ~ (Using Hashing)
+        // Optimal Approach ~
+        public static int findSingleElement(int a[]){
+            int xor = 0;
+            for (int i = 0; i < a.length; i++) 
+                xor ^=a[i];
+            return xor;
+        }
+
+
+
+
+        // 13. Longest subarray of sum K
+        public static int getLongestSubarray(int []a, long k) {
+            int n = a.length; 
+    
+            int left = 0, right = 0; 
+            long sum = a[0];
+            int maxLen = 0;
+            while (right < n) {
+                while (left <= right && sum > k) {
+                    sum -= a[left];
+                    left++;
+                }
+    
+                
+                if (sum == k) {
+                    maxLen = Math.max(maxLen, right - left + 1);
+                }
+    
+            
+                right++;
+                if (right < n) sum += a[right];
+            }
+    
+            return maxLen;
+        }
+    }
+
+
+
