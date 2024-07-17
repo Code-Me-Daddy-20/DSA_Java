@@ -34,15 +34,17 @@ public class Revision {
         // System.out.println(Arrays.toString(a));
 
         // 3. Insertion Sort
-        for(int i=0; i<n; i++){
-            int j=i;
-            while(j>0 && a[j-1]>a[j]){
-                int temp = a[j];
-                a[j] = a[j-1];
-                a[j-1] = temp;
-                j--;
-            }
-        }
-        System.out.println(Arrays.toString(a));
+        // for(int i=0; i<n; i++){
+        //     int j=i;
+        //     while(j>0 && a[j-1]>a[j]){
+        //         int temp = a[j];
+        //         a[j] = a[j-1];
+        //         a[j-1] = temp;
+        //         j--;
+        //     }
+        // }
+        // System.out.println(Arrays.toString(a));
+
+        // 
     }
 }
