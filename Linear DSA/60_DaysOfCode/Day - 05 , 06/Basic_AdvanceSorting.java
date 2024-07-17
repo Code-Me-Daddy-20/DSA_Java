@@ -35,7 +35,7 @@ public class Basic_AdvanceSorting {
             }
             int tp = a[i];
             a[i] = a[min_pos];
-            a[min_pos] = tp;
+            a[min_pos] = tp; 
         }
         System.out.print("After selection sort: ");
         for (int i = 0; i < a.length; i++) {
