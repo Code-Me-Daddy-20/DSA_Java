@@ -86,7 +86,8 @@ public class EasyArrays {
             if (a[i] > max) {
                 sMax = max;
                 max = a[i];
-            } else if (a[i] > sMax && a[i] != max)
+            } 
+            else if (a[i] > sMax && a[i] != max)
                 sMax = a[i];
         }
         return sMax;

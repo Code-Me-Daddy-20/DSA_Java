@@ -3,15 +3,20 @@ import java.util.*;
 public class Revision {
     public static void main(String[] args) {
 
-        // Sorting -
+       
 
         int a[] = { 10, 4, 2, 9, 8, 6, 2, 5 };
-        int n = a.length;
-
-        // MergeSort(a, 0, n-1);
+        int n = a.length-1;
+        
+        // Easy Arrays - 
+        System.out.println(SecondLargestElement(a, n));
+        
+        // Sorting -
+        
+        // MergeSort(a, 0, n);
         // System.out.println(Arrays.toString(a));
 
-        // QuickSort(a, 0, n-1);
+        // QuickSort(a, 0, n);
         // System.out.println(Arrays.toString(a));
 
 
@@ -90,29 +95,48 @@ public class Revision {
     // }
 
     // 5. Quick Sort
-    static void QuickSort(int a[], int low, int high) {
-        if (low < high) {
-            int pi = partition(a, low, high);
-            QuickSort(a, low, pi - 1);
-            QuickSort(a, pi + 1, high);
-        }
-    }
-    static int partition(int a[], int low, int high) {
-        int pivot = a[high]; 
-        int i = low - 1; 
-        for (int j = low; j < high; j++) {
-            if (a[j] < pivot) {
-                i++;
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
+    // static void QuickSort(int a[], int low, int high) {
+    //     if (low < high) {
+    //         int pi = partition(a, low, high);
+    //         QuickSort(a, low, pi - 1);
+    //         QuickSort(a, pi + 1, high);
+    //     }
+    // }
+    // static int partition(int a[], int low, int high) {
+    //     int pivot = a[high]; 
+    //     int i = low - 1; 
+    //     for (int j = low; j < high; j++) {
+    //         if (a[j] < pivot) {
+    //             i++;
+    //             int temp = a[i];
+    //             a[i] = a[j];
+    //             a[j] = temp;
+    //         }
+    //     }
+
+    //     int temp = a[i + 1];
+    //     a[i + 1] = a[high];
+    //     a[high] = temp;
+
+    //     return i + 1; 
+    // }
+
+    // Easy Arrays - 
+    // int a[] = { 10, 4, 2, 9, 8, 6, 2, 5 };
+
+    // 1. SecondLargestElement
+    static int SecondLargestElement(int arr[] , int n){
+        int max = Integer.MIN_VALUE;
+        int secMax = Integer.MIN_VALUE;
+        for (int i = 0; i <= n; i++) {
+            if(arr[i] > max){
+                secMax = max;
+                max = arr[i];
+            }
+            else if (arr[i] > secMax && arr[i] != max) {
+                secMax = arr[i];
             }
         }
-
-        int temp = a[i + 1];
-        a[i + 1] = a[high];
-        a[high] = temp;
-
-        return i + 1; 
+        return secMax;
     }
 }
