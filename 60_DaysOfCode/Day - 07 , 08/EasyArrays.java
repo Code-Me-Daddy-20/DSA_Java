@@ -13,8 +13,10 @@ public class EasyArrays {
         // System.out.println("Second largest element in the array: " + OptimalSecMaxElement(arr));
 
         // System.out.println("Is the array sorted? : "+isSortedArray(sortArr));
-
-        // System.out.println("Removed dupilicates: " + removeDuplicates(dupArr));
+        
+        System.out.println(Arrays.toString(dupArr));
+        System.out.println("Removed dupilicates: " + removeDuplicates(dupArr));
+        System.out.println(Arrays.toString(dupArr));
 
         // System.out.println("After Left rotate: " + Arrays.toString(leftRotateArray(arr)));
 
@@ -33,7 +35,7 @@ public class EasyArrays {
 
         // System.out.println("Single element in the array is: "+findSingleElement(dupArr));
 
-        System.out.println("Longest subarray of sum K is:"+getLongestSubarray(arr,5));
+        // System.out.println("Longest subarray of sum K is:"+getLongestSubarray(arr,5));
     }
 
     // 1. Largest element in an array
@@ -108,9 +110,9 @@ public class EasyArrays {
     public static int removeDuplicates(int a[]) {
         int i = 0;
         for (int j = 1; j < a.length; j++) {
-            if (a[j] != a[i]) {
-                a[i + 1] = a[j];
+            if (a[i] != a[j]) {
                 i++;
+                a[i] = a[j];
             }
         }
         return i + 1;
