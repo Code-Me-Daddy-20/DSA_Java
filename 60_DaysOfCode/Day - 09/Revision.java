@@ -3,7 +3,7 @@ import java.util.*;
 public class Revision {
     public static void main(String[] args) {
 
-        int a[] = { 0, 0, 0, 1, 2, 3, 4, 5, 6 };
+        int a[] = { 1,1,1,0,0,1,1,0,1,1,1,1 };
         int n = a.length - 1;
 
         // Easy Arrays -
@@ -14,14 +14,15 @@ public class Revision {
         // System.out.println(Arrays.toString(leftRotatebyK(a, n, 3)));
         // System.out.println(Arrays.toString(moveZerosToEnd(a, n)));
         // System.out.println(linearSearch(a, n, 5));
-        
+        // System.out.println(missingNumbers(a, n));
+        // System.out.println(maxConsecutiveOnes(a, n));
 
         // Sorting -
 
-        // MergeSort(a, 0, n);
+        // MergeSort(a, 0, n); 
         // System.out.println(Arrays.toString(a));
 
-        // QuickSort(a, 0, n);
+        // QuickSort(a, 0, n); 
         // System.out.println(Arrays.toString(a));
 
         // 1. Selection sort - O(n^2)
@@ -63,7 +64,7 @@ public class Revision {
 
     }
 
-    // 4. Merge sort
+    // 4. Merge sort - O(n log n)
     // static void MergeSort(int arr[] , int low , int high){
     // if(low >= high) return;
     // int mid = ( low + high )/ 2;
@@ -97,7 +98,7 @@ public class Revision {
     // }
     // }
 
-    // 5. Quick Sort
+    // 5. Quick Sort - O(n log n)
     // static void QuickSort(int a[], int low, int high) {
     // if (low < high) {
     // int pi = partition(a, low, high);
@@ -198,31 +199,57 @@ public class Revision {
     // }
 
     // 6. move all zeros to end
-    // static int[] moveZerosToEnd(int a[], int n) {
-    //     int j = -1;
-    //     for (int i = 0; i <= n; i++) {
-    //         if (a[i] == 0) {
-    //             j = i;
-    //             break;
-    //         }
-    //     }
-    //     for (int i = 0; i <= n; i++) {
-    //         if (a[i] != 0) {
-    //             int temp = a[i];
-    //             a[i] = a[j];
-    //             a[j] = temp;
-    //             j++;
-    //         }
-    //     }
-    //     return a;
-    // }
+    static int[] moveZerosToEnd(int a[], int n) {
+        int j = -1;
+        for (int i = 0; i <= n; i++) {
+            if (a[i] == 0) {
+                j = i;
+                break;
+            }
+        }
+        for (int i = j+1; i <= n; i++) {
+            if (a[i] != 0) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                j++;
+            }
+        }
+        return a;
+    }
 
     // 7. linear search
-    static int linearSearch(int a[], int n, int key) {
-        for (int i = 0; i <= n; i++) {
-            if(a[i] == key)
-            return i;
-        }
-        return -1;
-    }
+    // static int linearSearch(int a[], int n, int key) {
+    // for (int i = 0; i <= n; i++) {
+    // if(a[i] == key)
+    // return i;
+    // }
+    // return -1;
+    // }
+
+    // 8. Missing numbers
+    // static int missingNumbers(int a[], int n) {
+    // int sum = (a[n] * (a[n] + 1)/2);
+    // int mSum = 0;
+    // for (int i = 0; i <= n; i++) {
+    // mSum += a[i];
+    // }
+    // return sum - mSum;
+    // }
+
+    // 9. Maximum consecutive 1s in array
+    // static int maxConsecutiveOnes(int a[], int n) {
+    //     int c = 0;
+    //     int max = 0;
+    //     for (int i = 0; i <= n; i++) {
+    //         if (a[i] == 1)
+    //             c++;
+    //         else
+    //             c = 0;
+    //         max = Math.max(max, c);
+    //     }
+    //     return max;
+    // }
+
+
 }
