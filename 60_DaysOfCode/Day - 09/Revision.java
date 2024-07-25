@@ -3,8 +3,8 @@ import java.util.*;
 public class Revision {
     public static void main(String[] args) {
 
-        int a[] = { 1,1,2,2,3,3,4,5,5,6,6 };
-        int b[] = { 0 };
+        int a[] = { 1,1,2,3,4 };
+        int b[] = { 1,5,6 };
         int m = a.length - 1;
         int n = b.length -1;
 
@@ -18,7 +18,7 @@ public class Revision {
         // System.out.println(linearSearch(a, n, 5));
         // System.out.println(missingNumbers(a, n));
         // System.out.println(maxConsecutiveOnes(a, n));
-        // System.out.println(union(a, b, m, n));
+        System.out.println(union(a, b, m, n));
         // System.out.println(intersection(a, b, m, n));
         // System.out.println(singleElement(a, m));
 
@@ -266,12 +266,14 @@ public class Revision {
     //     int i = 0; int j = 0;
     //     while( i <= m && j <= n){
     //         if(a[i] <= b[j]){
-    //             if( un.size() == 0 || un.get(un.size()-1) != a[i])
+    //             // if( un.size() == 0 || un.get(un.size()-1) != a[i])
+    //             if( un.size() == 0 || un.get(un.size()-1) == a[i])
     //             un.add(a[i]);
     //             i++;
     //         }
     //         else{
-    //             if( un.size() == 0 || un.get(un.size()-1) != b[j])
+    //             // if( un.size() == 0 || un.get(un.size()-1) != b[j])
+    //             if( un.size() == 0 || un.get(un.size()-1) == b[j])
     //             un.add(b[j]);
     //             j++;
     //         }
