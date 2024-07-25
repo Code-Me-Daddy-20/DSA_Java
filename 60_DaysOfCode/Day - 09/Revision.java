@@ -79,31 +79,30 @@ public class Revision {
     //     Merge(arr, low, mid, high);
     // }
 
-    // static void Merge( int arr[] , int low, int mid, int high){
-    // ArrayList<Integer> al = new ArrayList<Integer>();
-    // int left = low;
-    // int right = mid + 1;while(left<=mid&&right<=high)
-    // {
-    //     if (arr[left] <= arr[right]) {
+    // static void Merge(int arr[], int low, int mid, int high) {
+    //     ArrayList<Integer> al = new ArrayList<Integer>();
+    //     int left = low;
+    //     int right = mid + 1;
+    //     while (left <= mid && right <= high) {
+    //         if (arr[left] <= arr[right]) {
+    //             al.add(arr[left]);
+    //             left++;
+    //         } else {
+    //             al.add(arr[right]);
+    //             right++;
+    //         }
+    //     }
+    //     while (left <= mid) {
     //         al.add(arr[left]);
     //         left++;
-    //     } else {
+    //     }
+    //     while (right <= high) {
     //         al.add(arr[right]);
     //         right++;
     //     }
-    // }while(left<=mid)
-    // {
-    //     al.add(arr[left]);
-    //     left++;
-    // }while(right<=high)
-    // {
-    //     al.add(arr[right]);
-    //     right++;
-    // }for(
-    // int i = low;i<=high;i++)
-    // {
-    //     arr[i] = al.get(i - low);
-    // }
+    //     for (int i = low; i <= high; i++) {
+    //         arr[i] = al.get(i - low);
+    //     }
     // }
 
     // 5. Quick Sort - O(n log n)
@@ -116,20 +115,20 @@ public class Revision {
     // }
 
     // static int partition(int a[], int low, int high) {
-    // int pivot = a[high];
-    // int i = low - 1;
-    // for (int j = low; j < high; j++) {
-    // if (a[j] < pivot) {
-    // i++;
-    // int temp = a[i];
-    // a[i] = a[j];
-    // a[j] = temp;
-    // }
-    // }
-    // int temp = a[i + 1];
-    // a[i+1]=a[high];
-    // a[high]=temp;
-    // return i+1;
+    //     int pivot = a[high];
+    //     int i = low - 1;
+    //     for (int j = low; j < high; j++) {
+    //         if (a[j] < pivot) {
+    //             i++;
+    //             int temp = a[i];
+    //             a[i] = a[j];
+    //             a[j] = temp;
+    //         }
+    //     }
+    //     int temp = a[i + 1];
+    //     a[i + 1] = a[high];
+    //     a[high] = temp;
+    //     return i + 1;
     // }
 
     // Easy Arrays -
