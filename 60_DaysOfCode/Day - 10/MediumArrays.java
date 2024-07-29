@@ -9,7 +9,7 @@ public class MediumArrays{
 		System.out.println(twoSum(arr, n, target));
 	}
 
-	static boolean twoSum(int a[] , int n, int k){
+	// static boolean twoSum(int a[] , int n, int k){
 		// BruteForce ~ o(N^2)
 		// int sum;
 		// for(int i = 0; i < n; i++){
