@@ -34,16 +34,16 @@ public class MediumArrays{
 		// return false;
 
 		// Using twopointer ~ O(n) + O(n log n)
-		Arrays.sort(a);
-		int left = 0, right = n - 1;
-		while(left < right) {
-			if(a[left]+a[right] == k)
-			return true;
-			else if(a[left]+a[right] < k)
-			left++;
-			else
-			right--;
-		}
-		return false;
+		// Arrays.sort(a);
+		// int left = 0, right = n - 1;
+		// while(left < right) {
+		// 	if(a[left]+a[right] == k)
+		// 	return true;
+		// 	else if(a[left]+a[right] < k)
+		// 	left++;
+		// 	else
+		// 	right--;
+		// }
+		// return false;
 	}
 }
