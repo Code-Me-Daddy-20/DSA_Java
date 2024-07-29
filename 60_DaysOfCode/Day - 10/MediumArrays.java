@@ -5,8 +5,8 @@ public class MediumArrays{
 	public static void main(String[] args) {
 		int arr[] = {2,6,5,8,11};
 		int n = arr.length;
-		int target = 14;
-		System.out.println(twoSum(arr, n, target));
+		// int target = 14;
+		// System.out.println(twoSum(arr, n, target));
 	}
 
 	// 1. Two Sum
