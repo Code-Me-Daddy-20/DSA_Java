@@ -3,10 +3,11 @@ import java.util.HashMap;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {2,6,5,8,11};
+		int arr[] = {2,2,1,1,0,0,1,0,1};
 		int n = arr.length;
 		// int target = 14;
 		// System.out.println(twoSum(arr, n, target));
+		System.out.println(Arrays.toString(sortZerOneTwo(arr, n)));
 	}
 
 	// 1. Two Sum
@@ -46,5 +47,51 @@ public class MediumArrays{
 		// 	right--;
 		// }
 		// return false;
-	}
+		// }
+
+		// 2. Sort array without using inbuilt functions
+		static int[] sortZerOneTwo(int a[], int n) {
+			// Better Approach ~ O(2n)
+			// int n0 = 0; int n1 = 0; int n2 = 0;
+			// for (int i = 0; i < n; i++) {
+			// 	if(a[i] == 0)
+			// 	n0++;
+			// 	else if(a[i] == 1)
+			// 	n1++;
+			// 	else
+			// 	n2++;
+			// }	
+			// for (int i = 0; i < n; i++) {
+			// 	if(i >= 0 && i < n0)
+			// 	a[i] = 0;
+			// 	else if(i >= n0 && i < n0+n1)
+			// 	a[i] = 1;
+			// 	else if(i >= n0+n1 && i < n0+n1+n2)
+			// 	a[i] = 2; 
+			// }	
+			// return a;
+
+			// Optimal Approach ~ O(n)
+			int low = 0; int mid = 0; int high = n-1;
+			while(mid <= high){
+				if(a[mid] == 0){
+					int temp = a[low];
+					a[low] = a[mid];
+					a[mid] = temp;
+					low++;
+					mid++;
+				}
+				else if(a[mid] == 1){
+					mid++;
+				}
+				else{
+					int temp = a[mid];
+					a[mid] = a[high];
+					a[high] = temp;
+					high--;
+				}
+			}
+			return a;
+
+		}
 }
