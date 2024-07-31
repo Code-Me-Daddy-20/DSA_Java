@@ -1,13 +1,14 @@
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {2,2,1,1,0,0,1,0,1};
+		int arr[] = {-2,1,-3,4,-1,2,1,-5,4};
 		int n = arr.length;
 		// int target = 14;
 		// System.out.println(twoSum(arr, n, target));
-		System.out.println(Arrays.toString(sortZerOneTwo(arr, n)));
+		// System.out.println(Arrays.toString(sortZerOneTwo(arr, n)));
+		// System.out.println(majorityElement(arr,n));
+		System.out.println(kandaneSubarray(arr, n));
 	}
 
 	// 1. Two Sum
@@ -50,48 +51,101 @@ public class MediumArrays{
 		// }
 
 		// 2. Sort array without using inbuilt functions
-		static int[] sortZerOneTwo(int a[], int n) {
-			// Better Approach ~ O(2n)
-			// int n0 = 0; int n1 = 0; int n2 = 0;
-			// for (int i = 0; i < n; i++) {
-			// 	if(a[i] == 0)
-			// 	n0++;
-			// 	else if(a[i] == 1)
-			// 	n1++;
-			// 	else
-			// 	n2++;
-			// }	
-			// for (int i = 0; i < n; i++) {
-			// 	if(i >= 0 && i < n0)
-			// 	a[i] = 0;
-			// 	else if(i >= n0 && i < n0+n1)
-			// 	a[i] = 1;
-			// 	else if(i >= n0+n1 && i < n0+n1+n2)
-			// 	a[i] = 2; 
-			// }	
-			// return a;
+		// static int[] sortZerOneTwo(int a[], int n) {
+		// 	Better Approach ~ O(2n)
+		// 	int n0 = 0; int n1 = 0; int n2 = 0;
+		// 	for (int i = 0; i < n; i++) {
+		// 		if(a[i] == 0)
+		// 		n0++;
+		// 		else if(a[i] == 1)
+		// 		n1++;
+		// 		else
+		// 		n2++;
+		// 	}	
+		// 	for (int i = 0; i < n; i++) {
+		// 		if(i >= 0 && i < n0)
+		// 		a[i] = 0;
+		// 		else if(i >= n0 && i < n0+n1)
+		// 		a[i] = 1;
+		// 		else if(i >= n0+n1 && i < n0+n1+n2)
+		// 		a[i] = 2; 
+		// 	}	
+		// 	return a;
 
-			// Optimal Approach ~ O(n)
-			int low = 0; int mid = 0; int high = n-1;
-			while(mid <= high){
-				if(a[mid] == 0){
-					int temp = a[low];
-					a[low] = a[mid];
-					a[mid] = temp;
-					low++;
-					mid++;
+		// Optimal Approach ~ O(n) [ Dutch National flag algorithm. ]
+		// 	int low = 0; int mid = 0; int high = n-1;
+		// 	while(mid <= high){
+		// 		if(a[mid] == 0){
+		// 			int temp = a[low];
+		// 			a[low] = a[mid];
+		// 			a[mid] = temp;
+		// 			low++;
+		// 			mid++;
+		// 		}
+		// 		else if(a[mid] == 1){
+		// 			mid++;
+		// 		}
+		// 		else{
+		// 			int temp = a[mid];
+		// 			a[mid] = a[high];
+		// 			a[high] = temp;
+		// 			high--;
+		// 		}
+		// 	}
+		// 	return a;
+		// }
+
+		// 3. Return number that appears more than n/2 times in an array
+		// static int majorityElement(int v[],int n) {
+		// 	// Optimal solution ~ O(2n) [ Moore’s Voting Algorithm ]
+		// 	int cnt = 0;
+		// 	int el = 0;
+		// 	for (int i = 0; i < n; i++) {
+		// 		if (cnt == 0) {
+		// 			cnt = 1;
+		// 			el = v[i];
+		// 		} else if (el == v[i])
+		// 			cnt++;
+		// 		else
+		// 			cnt--;
+		// 	}
+		// 	int cnt1 = 0;
+		// 	for (int i = 0; i < n; i++) {
+		// 		if (v[i] == el)
+		// 			cnt1++;
+		// 	}
+
+		// 	if (cnt1 > (n / 2))
+		// 		return el;
+		// 	return -1;
+		// }
+
+		// 4. Maximum subarray sum in array [ Kandane's Algorithm ]
+		static int kandaneSubarray(int a[] , int n){
+			// Better Approach ~ O(n^2)
+			// int maxSum = Integer.MIN_VALUE;
+			// for (int i = 0; i < n; i++) {
+			// 	int sum = 0;
+			// 	for (int j = i; j < n; j++) {
+			// 		sum += a[j];
+			// 		if (maxSum < sum )
+			// 		maxSum = sum;
+			// 	}
+			// }
+			// return maxSum;
+
+			// Optimal Approach ~  O(n)
+			int maxSum = Integer.MIN_VALUE; int sum = 0; int start = -1; int aStart = -1, aEnd = -1;
+			for (int i = 0; i < n; i++) {
+				if(sum == 0) start = i;
+				sum+=a[i];
+				if (maxSum  < sum){
+					aStart = start; aEnd = i;
+					maxSum = sum;
 				}
-				else if(a[mid] == 1){
-					mid++;
-				}
-				else{
-					int temp = a[mid];
-					a[mid] = a[high];
-					a[high] = temp;
-					high--;
-				}
+				if (sum < 0)
+				sum = 0;
 			}
-			return a;
-
+			return maxSum;
 		}
-}
+	}
