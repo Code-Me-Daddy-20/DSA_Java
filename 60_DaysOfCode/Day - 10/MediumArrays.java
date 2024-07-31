@@ -8,7 +8,7 @@ public class MediumArrays{
 		// System.out.println(twoSum(arr, n, target));
 		// System.out.println(Arrays.toString(sortZerOneTwo(arr, n)));
 		// System.out.println(majorityElement(arr,n));
-		System.out.println(kandaneSubarray(arr, n));
+		// System.out.println(kandaneSubarray(arr, n));
 	}
 
 	// 1. Two Sum
@@ -121,7 +121,7 @@ public class MediumArrays{
 		// }
 
 		// 4. Maximum subarray sum in array [ Kandane's Algorithm ]
-		static int kandaneSubarray(int a[] , int n){
+		// static int kandaneSubarray(int a[] , int n){
 			// Better Approach ~ O(n^2)
 			// int maxSum = Integer.MIN_VALUE;
 			// for (int i = 0; i < n; i++) {
@@ -135,17 +135,17 @@ public class MediumArrays{
 			// return maxSum;
 
 			// Optimal Approach ~  O(n)
-			int maxSum = Integer.MIN_VALUE; int sum = 0; int start = -1; int aStart = -1, aEnd = -1;
-			for (int i = 0; i < n; i++) {
-				if(sum == 0) start = i;
-				sum+=a[i];
-				if (maxSum  < sum){
-					aStart = start; aEnd = i;
-					maxSum = sum;
-				}
-				if (sum < 0)
-				sum = 0;
-			}
-			return maxSum;
+			// int maxSum = Integer.MIN_VALUE; int sum = 0; int start = -1; int aStart = -1, aEnd = -1;
+			// for (int i = 0; i < n; i++) {
+			// 	if(sum == 0) start = i;
+			// 	sum+=a[i];
+			// 	if (maxSum  < sum){
+			// 		aStart = start; aEnd = i;
+			// 		maxSum = sum;
+			// 	}
+			// 	if (sum < 0)
+			// 	sum = 0;
+			// }
+			// return maxSum;
 		}
 	}
