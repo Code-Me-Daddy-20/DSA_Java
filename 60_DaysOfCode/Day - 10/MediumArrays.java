@@ -2,7 +2,8 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {-2,1,-3,4,-1,2,1,-5,4};
+		int arr[] = {1,1,2,2,2};
+		Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
 		// System.out.println(twoSum(arr, n, target));
@@ -50,7 +51,7 @@ public class MediumArrays{
 		// return false;
 		// }
 
-		// 2. Sort array without using inbuilt functions
+		// 2. Sort array of [0s, 1s, 2s] without using inbuilt functions
 		// static int[] sortZerOneTwo(int a[], int n) {
 		// 	Better Approach ~ O(2n)
 		// 	int n0 = 0; int n1 = 0; int n2 = 0;
@@ -147,5 +148,5 @@ public class MediumArrays{
 			// 	sum = 0;
 			// }
 			// return maxSum;
-		}
-	}
+		// }
+}
