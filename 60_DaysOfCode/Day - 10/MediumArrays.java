@@ -155,20 +155,21 @@ public class MediumArrays{
 		// 	}
 		// 	return maxSum;
 		// }
-	// 2,1,3,5,6
-		static int buySellStock(int a[] , int n){
-			int min = a[0]; int profit = 0; int buyDay = 0; int sellDay = 0;
-			for (int i = 1; i < n; i++) {
-				if(a[i] < min){
-					min = a[i];
-					buyDay = i+1;
-				}
-				if(a[i] - min > profit){
-					profit = a[i] - min;
-					sellDay = i+1;
-				}
-			}
-			System.out.println("Buy: "+buyDay+" - Sell: "+sellDay);
-			return profit;
-		}
+
+		// 5. Buy and sell stock with max profit - O(n)
+		// static int buySellStock(int a[] , int n){
+		// 	int min = a[0]; int profit = 0; int buyDay = 0; int sellDay = 0;
+		// 	for (int i = 1; i < n; i++) {
+		// 		if(a[i] < min){
+		// 			min = a[i];
+		// 			buyDay = i+1;
+		// 		}
+		// 		if(a[i] - min > profit){
+		// 			profit = a[i] - min;
+		// 			sellDay = i+1;
+		// 		}
+		// 	}
+		// 	System.out.println("Buy: "+buyDay+" - Sell: "+sellDay);
+		// 	return profit;
+		// }
 }
