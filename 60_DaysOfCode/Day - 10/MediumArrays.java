@@ -2,14 +2,15 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {1,1,2,2,2};
-		Arrays.sort(arr);
+		int arr[] = {2,1,3,5,6};
+		// Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
 		// System.out.println(twoSum(arr, n, target));
 		// System.out.println(Arrays.toString(sortZerOneTwo(arr, n)));
 		// System.out.println(majorityElement(arr,n));
 		// System.out.println(kandaneSubarray(arr, n));
+		System.out.println(buySellStock(arr, n));
 	}
 
 	// 1. Two Sum
@@ -98,7 +99,7 @@ public class MediumArrays{
 
 		// 3. Return number that appears more than n/2 times in an array
 		// static int majorityElement(int v[],int n) {
-		// 	// Optimal solution ~ O(2n) [ Moore’s Voting Algorithm ]
+		// Optimal solution ~ O(2n) [ Moore’s Voting Algorithm ]
 		// 	int cnt = 0;
 		// 	int el = 0;
 		// 	for (int i = 0; i < n; i++) {
@@ -124,29 +125,50 @@ public class MediumArrays{
 		// 4. Maximum subarray sum in array [ Kandane's Algorithm ]
 		// static int kandaneSubarray(int a[] , int n){
 			// Better Approach ~ O(n^2)
-			// int maxSum = Integer.MIN_VALUE;
-			// for (int i = 0; i < n; i++) {
-			// 	int sum = 0;
-			// 	for (int j = i; j < n; j++) {
-			// 		sum += a[j];
-			// 		if (maxSum < sum )
-			// 		maxSum = sum;
-			// 	}
-			// }
-			// return maxSum;
+		// 	int maxSum = Integer.MIN_VALUE;
+		// 	for (int i = 0; i < n; i++) {
+		// 		int sum = 0;
+		// 		for (int j = i; j < n; j++) {
+		// 			sum += a[j];
+		// 			if (maxSum < sum )
+		// 			maxSum = sum;
+		// 		}
+		// 	}
+		// 	return maxSum;
+		// }
+
 
 			// Optimal Approach ~  O(n)
-			// int maxSum = Integer.MIN_VALUE; int sum = 0; int start = -1; int aStart = -1, aEnd = -1;
-			// for (int i = 0; i < n; i++) {
-			// 	if(sum == 0) start = i;
-			// 	sum+=a[i];
-			// 	if (maxSum  < sum){
-			// 		aStart = start; aEnd = i;
-			// 		maxSum = sum;
-			// 	}
-			// 	if (sum < 0)
-			// 	sum = 0;
-			// }
-			// return maxSum;
+		// 	int maxSum = Integer.MIN_VALUE; 
+		// 	int sum = 0; 
+		// 	int start = -1; 
+		// 	int aStart = -1, aEnd = -1;
+		// 	for (int i = 0; i < n; i++) {
+		// 		if(sum == 0) start = i;
+		// 		sum+=a[i];
+		// 		if (sum > maxSum){
+		// 			aStart = start; aEnd = i;
+		// 			maxSum = sum;
+		// 		}
+		// 		if (sum < 0)
+		// 		sum = 0;
+		// 	}
+		// 	return maxSum;
 		// }
+	// 2,1,3,5,6
+		static int buySellStock(int a[] , int n){
+			int min = a[0]; int profit = 0; int buyDay = 0; int sellDay = 0;
+			for (int i = 1; i < n; i++) {
+				if(a[i] < min){
+					min = a[i];
+					buyDay = i+1;
+				}
+				if(a[i] - min > profit){
+					profit = a[i] - min;
+					sellDay = i+1;
+				}
+			}
+			System.out.println("Buy: "+buyDay+" - Sell: "+sellDay);
+			return profit;
+		}
 }
