@@ -10,7 +10,7 @@ public class MediumArrays{
 		// System.out.println(Arrays.toString(sortZerOneTwo(arr, n)));
 		// System.out.println(majorityElement(arr,n));
 		// System.out.println(kandaneSubarray(arr, n));
-		System.out.println(buySellStock(arr, n));
+		// System.out.println(buySellStock(arr, n));
 	}
 
 	// 1. Two Sum
