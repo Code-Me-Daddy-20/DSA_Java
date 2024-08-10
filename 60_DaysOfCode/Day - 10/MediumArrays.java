@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {12,1,3,5,6};
+		int arr[] = {12,1,3,5,6,-2,4};
 		// Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
@@ -11,7 +11,8 @@ public class MediumArrays{
 		// System.out.println(majorityElement(arr,n));
 		// System.out.println(kandaneSubarray(arr, n));
 		// System.out.println(buySellStock(arr, n));
-		System.out.println(LeaderElementtoRight(arr, n));
+		// System.out.println(LeaderElementtoRight(arr, n));
+		// System.out.println(subarraywithsumK(arr, n, 4));
 	}
 
 	// 1. Two Sum
@@ -187,6 +188,21 @@ public class MediumArrays{
 		// 	}
 		// 	return list;
 		// }
+
+		// 7. Find number of subarrays with sum K
+		static int subarraywithsumK(int a[], int n , int k){
+			Map<Integer , Integer> mp = new HashMap<>();
+			int preSum = 0; int cnt = 0;
+			mp.put(0,1);
+			for (int i = 0; i < n; i++) {
+				preSum += a[i];
+				int remove = preSum - k;
+				cnt += mp.getOrDefault(remove, 0);
+				mp.put(preSum, mp.getOrDefault(preSum, 0)+1);
+			}
+			return cnt;
+
+		}
 
 }
   
