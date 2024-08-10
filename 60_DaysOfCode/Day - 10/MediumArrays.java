@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {2,1,3,5,6};
+		int arr[] = {12,1,3,5,6};
 		// Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
@@ -11,6 +11,7 @@ public class MediumArrays{
 		// System.out.println(majorityElement(arr,n));
 		// System.out.println(kandaneSubarray(arr, n));
 		// System.out.println(buySellStock(arr, n));
+		System.out.println(LeaderElementtoRight(arr, n));
 	}
 
 	// 1. Two Sum
@@ -172,5 +173,20 @@ public class MediumArrays{
 		// 	System.out.println("Buy: "+buyDay+" - Sell: "+sellDay);
 		// 	return profit;
 		// }
+
+		// 6. Leader elment to all the elements to the right sid1e of it
+		// static ArrayList<Integer> LeaderElementtoRight( int a[], int n ){
+		// 	ArrayList<Integer> list = new ArrayList<>();
+		// 	int leader = a[n-1];
+		// 	list.add(leader);
+		// 	for (int i = n-2; i >= 0; i--) {
+		// 		if(a[i] > leader){
+		// 			leader = a[i];
+		// 			list.add(leader);
+		// 		}
+		// 	}
+		// 	return list;
+		// }
+
 }
   
