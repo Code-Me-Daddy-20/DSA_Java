@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {12,-1,3,4};
+		int arr[] = {-12,1,-3,4,-5,5,-6,8};
 		// Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
@@ -204,7 +204,7 @@ public class MediumArrays{
 		// 	return cnt;
 		// }
 
-		// 8. Reaarange arry elements by sign
+		// 8. Reaarange arry elements by sign (having same no. of +ves and -ves)
 		static int[] rearrangebySign(int a[] , int n){
 			// Brute Force ~
 			// ArrayList<Integer> pos = new ArrayList<>();
@@ -225,20 +225,48 @@ public class MediumArrays{
 			// return a;
 
 			// Optimal Approach ~
-			ArrayList<Integer> reArray = new ArrayList<>(Collections.nCopies(n, 0));
-				int pos = 0;
-				int neg = 1;
-				for (int i = 0; i < n; i++) {
-					if (a[i] < 0) {
-						reArray.set(neg, a[i]);
-						neg += 2;
-					}
-						reArray.set(pos, a[i]);
-						pos += 2;
-				}
+			// int reArray[] = new int[n];
+			// int pos = 0;
+			// int neg = 1;
+			// for (int i = 0; i < n; i++) {
+			// 	if (a[i] > 0) {
+			// 		reArray[pos] = a[i];
+			// 		pos += 2;
+			// 	} else {
+			// 		reArray[neg] = a[i];
+			// 		neg += 2;
+			// 	}
+			// }
+
+			// return reArray;
+
+			// (having different +ves and -ves)
+			if(a == null || n == 0){
 				return a;
 			}
-		
+			
+			ArrayList<Integer> pos = new ArrayList<>();
+			ArrayList<Integer> neg = new ArrayList<>();
+
+			
+			for (int i = 0; i < n; i++) {
+				if(a[i] > 0)
+				pos.add(a[i]);
+				else
+				neg.add(a[i]);
+			}
+			System.out.println(pos);
+			System.out.println(neg);
+
+			int pv = 0; int nv = 0;
+			int newP = 0;
+			while (pv < pos.size() && nv < neg.size()) {
+				a[2*newP] = pos.get(pv++);
+				a[2*newP+1] = neg.get(nv++);
+				newP++;
+			}
+			return a;
+		}
 
 }
   
