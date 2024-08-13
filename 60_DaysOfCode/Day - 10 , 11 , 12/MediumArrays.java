@@ -13,7 +13,7 @@ public class MediumArrays{
 		// System.out.println(buySellStock(arr, n));
 		// System.out.println(LeaderElementtoRight(arr, n));
 		// System.out.println(subarraywithsumK(arr, n, 4));
-		System.out.println(Arrays.toString(rearrangebySign(arr, n)));
+		// System.out.println(Arrays.toString(rearrangebySign(arr, n)));
 	}
 
 	// 1. Two Sum
@@ -241,32 +241,32 @@ public class MediumArrays{
 			// return reArray;
 
 			// (having different +ves and -ves)
-			if(a == null || n == 0){
-				return a;
-			}
-			
-			ArrayList<Integer> pos = new ArrayList<>();
-			ArrayList<Integer> neg = new ArrayList<>();
+			// if(a == null || n == 0){
+			// 	return a;
+			// }
+
+		// 	ArrayList<Integer> pos = new ArrayList<>();
+		// 	ArrayList<Integer> neg = new ArrayList<>();
 
 			
-			for (int i = 0; i < n; i++) {
-				if(a[i] > 0)
-				pos.add(a[i]);
-				else
-				neg.add(a[i]);
-			}
-			System.out.println(pos);
-			System.out.println(neg);
+		// 	for (int i = 0; i < n; i++) {
+		// 		if(a[i] > 0)
+		// 		pos.add(a[i]);
+		// 		else
+		// 		neg.add(a[i]);
+		// 	}
+		// 	System.out.println(pos);
+		// 	System.out.println(neg);
 
-			int pv = 0; int nv = 0;
-			int newP = 0;
-			while (pv < pos.size() && nv < neg.size()) {
-				a[2*newP] = pos.get(pv++);
-				a[2*newP+1] = neg.get(nv++);
-				newP++;
-			}
-			return a;
-		}
+		// 	int pv = 0; int nv = 0;
+		// 	int newP = 0;
+		// 	while (pv < pos.size() && nv < neg.size()) {
+		// 		a[2*newP] = pos.get(pv++);
+		// 		a[2*newP+1] = neg.get(nv++);
+		// 		newP++;
+		// 	}
+		// 	return a;
+		// }
 
 }
   
