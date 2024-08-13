@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {12,1,3,5,6,-2,4};
+		int arr[] = {12,-1,3,4};
 		// Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
@@ -13,6 +13,7 @@ public class MediumArrays{
 		// System.out.println(buySellStock(arr, n));
 		// System.out.println(LeaderElementtoRight(arr, n));
 		// System.out.println(subarraywithsumK(arr, n, 4));
+		System.out.println(Arrays.toString(rearrangebySign(arr, n)));
 	}
 
 	// 1. Two Sum
@@ -190,19 +191,54 @@ public class MediumArrays{
 		// }
 
 		// 7. Find number of subarrays with sum K
-		static int subarraywithsumK(int a[], int n , int k){
-			Map<Integer , Integer> mp = new HashMap<>();
-			int preSum = 0; int cnt = 0;
-			mp.put(0,1);
-			for (int i = 0; i < n; i++) {
-				preSum += a[i];
-				int remove = preSum - k;
-				cnt += mp.getOrDefault(remove, 0);
-				mp.put(preSum, mp.getOrDefault(preSum, 0)+1);
-			}
-			return cnt;
+		// static int subarraywithsumK(int a[], int n , int k){
+		// 	Map<Integer , Integer> mp = new HashMap<>();
+		// 	int preSum = 0; int cnt = 0;
+		// 	mp.put(0,1);
+		// 	for (int i = 0; i < n; i++) {
+		// 		preSum += a[i];
+		// 		int remove = preSum - k;
+		// 		cnt += mp.getOrDefault(remove, 0);
+		// 		mp.put(preSum, mp.getOrDefault(preSum, 0)+1);
+		// 	}
+		// 	return cnt;
+		// }
 
-		}
+		// 8. Reaarange arry elements by sign
+		static int[] rearrangebySign(int a[] , int n){
+			// Brute Force ~
+			// ArrayList<Integer> pos = new ArrayList<>();
+			// ArrayList<Integer> neg = new ArrayList<>();
+
+			// for (int i = 0; i < n; i++) {
+			// 	if(a[i] > 0)
+			// 	pos.add(a[i]);
+			// 	else
+			// 	neg.add(a[i]);
+			// }
+
+			// for (int i = 0; i < n/2; i++) {
+			// 	a[2*i] = pos.get(i);
+			// 	a[2*i+1] = neg.get(i);
+			// }
+
+			// return a;
+
+			// Optimal Approach ~
+			ArrayList<Integer> reArray = new ArrayList<>(Collections.nCopies(n, 0));
+				int pos = 0;
+				int neg = 1;
+				for (int i = 0; i < n; i++) {
+					if (a[i] < 0) {
+						reArray.set(neg, a[i]);
+						neg += 2;
+					}
+						reArray.set(pos, a[i]);
+						pos += 2;
+				}
+				return a;
+			}
+		
 
 }
   
