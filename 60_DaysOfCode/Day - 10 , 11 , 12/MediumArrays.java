@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MediumArrays{
 	public static void main(String[] args) {
-		int arr[] = {-12,1,-3,4,-5,5,-6,8};
+		int arr[] = {3,1,-2,-5,2,-4};
 		// Arrays.sort(arr);
 		int n = arr.length;
 		// int target = 14;
@@ -13,7 +13,7 @@ public class MediumArrays{
 		// System.out.println(buySellStock(arr, n));
 		// System.out.println(LeaderElementtoRight(arr, n));
 		// System.out.println(subarraywithsumK(arr, n, 4));
-		// System.out.println(Arrays.toString(rearrangebySign(arr, n)));
+		// System.out.println(Arrays.toString(rearrangeArray(arr)));
 	}
 
 	// 1. Two Sum
@@ -205,7 +205,7 @@ public class MediumArrays{
 		// }
 
 		// 8. Reaarange arry elements by sign (having same no. of +ves and -ves)
-		static int[] rearrangebySign(int a[] , int n){
+		// static int[] rearrangebySign(int a[] , int n){
 			// Brute Force ~
 			// ArrayList<Integer> pos = new ArrayList<>();
 			// ArrayList<Integer> neg = new ArrayList<>();
@@ -267,6 +267,7 @@ public class MediumArrays{
 		// 	}
 		// 	return a;
 		// }
+		
 
 }
   
