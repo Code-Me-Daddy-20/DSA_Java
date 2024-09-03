@@ -18,7 +18,7 @@ public class Revision {
         // System.out.println(linearSearch(a, n, 5));
         // System.out.println(missingNumbers(a, n));
         // System.out.println(maxConsecutiveOnes(a, n));
-        System.out.println(union(a, b, m, n));
+        // System.out.println(union(a, b, m, n));
         // System.out.println(intersection(a, b, m, n));
         // System.out.println(singleElement(a, m));
 
