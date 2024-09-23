@@ -15,6 +15,7 @@ public class MediumArrays {
 		// System.out.println(subarraywithsumK(arr, n, 4));
 		// System.out.println(Arrays.toString(rearrangeArray(arr)));
 		// System.out.println(Arrays.toString(nextPermutation(arr, n)));
+		// System.out.println(longestConsecutive(arr));
 	}
 
 	// 1. Two Sum
@@ -310,6 +311,27 @@ public class MediumArrays {
 	// 	return a;
 	// }
 
-	// 10. 
+	// 10. Longest consecutive sequence
+	// static int longestConsecutive(int[] nums) {
+    //     if(nums.length == 0)
+    //     return 0;
+    //     Set<Integer> hst = new HashSet<>();
+    //     int lg = 1;
+    //     for(int i = 0; i < nums.length ; i++)
+    //         hst.add(nums[i]);
+    //     for(int ele : hst){
+    //         if(!hst.contains(ele-1)){
+    //             int cnt = 1; int x = ele;
+    //             while(hst.contains(x+1)){
+    //                 x = x+1;
+    //                 cnt++;
+    //             }
+    //             lg = Math.max(lg , cnt);
+    //         }
+    //     }
+    //     return lg;
+    // }
+
+	
 
 }
