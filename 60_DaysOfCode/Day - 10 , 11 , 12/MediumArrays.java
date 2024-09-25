@@ -33,7 +33,9 @@ public class MediumArrays {
         //     System.out.println();
         // }
 
-		// int arr[][] =  {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+		int arr[][] = { { 1, 2, 3 },
+				{ 4, 5, 6 },
+				{ 7, 8, 9 } };
         // rotate90(arr);
         // System.out.println("Rotated Image");
         // for (int i = 0; i < arr.length; i++) {
@@ -43,8 +45,9 @@ public class MediumArrays {
         //     System.out.println();
         // }
 
-		
+		System.out.println(spiralMatrix(arr, arr.length, arr[0].length));
 
+		
 
 		
 	}
@@ -426,23 +429,55 @@ public class MediumArrays {
     // }
 
 	// 12. Rotate matrix by 90 degree
-	static void rotate90(int[][] matrix) {
-        for(int i = 0 ; i < matrix.length ; i++){
-            for(int j = i; j < matrix[0].length ; j++){
-                if(i!=j){
-                    int temp = matrix[i][j];
-                    matrix[i][j] = matrix[j][i];
-                    matrix[j][i] = temp;
-                }
-            }
-        }
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length / 2; j++) {
-                int temp = 0;
-                temp = matrix[i][j];
-                matrix[i][j] = matrix[i][matrix.length - 1 - j];
-                matrix[i][matrix.length - 1 - j] = temp;
-            }
-        }
-    }
+	// static void rotate90(int[][] matrix) {
+    //     for(int i = 0 ; i < matrix.length ; i++){
+    //         for(int j = i; j < matrix.length ; j++){
+    //             if(i!=j){
+    //                 int temp = matrix[i][j];
+    //                 matrix[i][j] = matrix[j][i];
+    //                 matrix[j][i] = temp;
+    //             }
+    //         }
+    //     }
+    //     for (int i = 0; i < matrix.length; i++) {
+    //         for (int j = 0; j < matrix.length / 2; j++) {
+    //             int temp = 0;
+    //             temp = matrix[i][j];
+    //             matrix[i][j] = matrix[i][matrix.length - 1 - j];
+    //             matrix[i][matrix.length - 1 - j] = temp;
+    //         }
+    //     }
+    // }
+
+	// 13. Spiral matrix
+	static ArrayList<Integer> spiralMatrix(int matrix[][], int n, int m) {
+		ArrayList<Integer> spiral = new ArrayList<Integer>();
+		int left = 0;
+		int right = m - 1;
+		int top = 0;
+		int bottom = n - 1;
+		while (top <= bottom && left <= right) {
+			for (int i = left; i <= right; i++) {
+				spiral.add(matrix[top][i]);
+			}
+			top++;
+			for (int i = top; i <= bottom; i++) {
+				spiral.add(matrix[i][right]);
+			}
+			right--;
+			if (top <= bottom) {
+				for (int i = right; i >= left; i--) {
+					spiral.add(matrix[bottom][i]);
+				}
+				bottom--;
+			}
+			if (left <= right) {
+				for (int i = bottom; i >= top ; i--) {
+					spiral.add(matrix[i][left]);
+				}
+				left++;
+			}
+		}
+		return spiral;
+	}
 }
