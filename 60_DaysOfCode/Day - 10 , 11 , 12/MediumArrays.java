@@ -54,6 +54,8 @@ public class MediumArrays {
         // int c = 3;
         // System.out.println("The element at position (r,c) is: " + pascalTriangleRowColElement(r, c));
 		
+		int n = 6;
+		pascalTriangleNRow(n);
 	}
 
 	// 1. Two Sum
@@ -514,7 +516,15 @@ public class MediumArrays {
     //     return (int) res;
     // }
 
-	// Variation 2 - 
+	// Variation 2 - return the nth row
+	// static void pascalTriangleNRow(int n){
+	// 	int ans = 1;
+	// 	System.out.print(ans+" - ");
+	// 	for(int c = 1; c < n; c++){
+	// 		ans = (ans * (n - c))/c;
+	// 		System.out.print(ans+" - ");
+	// 	}
+	// }
 
 
 }
