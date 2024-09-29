@@ -17,6 +17,7 @@ public class MediumArrays {
 		// System.out.println(Arrays.toString(nextPermutation(arr, n)));
 		// System.out.println(longestConsecutive(arr));
 
+
 		// ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
         // matrix.add(new ArrayList<>(Arrays.asList(1, 1, 1)));
         // matrix.add(new ArrayList<>(Arrays.asList(1, 0, 1)));
@@ -33,9 +34,10 @@ public class MediumArrays {
         //     System.out.println();
         // }
 
-		int arr[][] = { { 1, 2, 3 },
-				{ 4, 5, 6 },
-				{ 7, 8, 9 } };
+
+		// int arr[][] = { { 1, 2, 3 },
+		// 		{ 4, 5, 6 },
+		// 		{ 7, 8, 9 } };
         // rotate90(arr);
         // System.out.println("Rotated Image");
         // for (int i = 0; i < arr.length; i++) {
@@ -45,10 +47,12 @@ public class MediumArrays {
         //     System.out.println();
         // }
 
-		System.out.println(spiralMatrix(arr, arr.length, arr[0].length));
+		// System.out.println(spiralMatrix(arr, arr.length, arr[0].length));
 
 		
-
+		// int r = 5; 
+        // int c = 3;
+        // System.out.println("The element at position (r,c) is: " + pascalTriangleRowColElement(r, c));
 		
 	}
 
@@ -450,34 +454,67 @@ public class MediumArrays {
     // }
 
 	// 13. Spiral matrix
-	static ArrayList<Integer> spiralMatrix(int matrix[][], int n, int m) {
-		ArrayList<Integer> spiral = new ArrayList<Integer>();
-		int left = 0;
-		int right = m - 1;
-		int top = 0;
-		int bottom = n - 1;
-		while (top <= bottom && left <= right) {
-			for (int i = left; i <= right; i++) {
-				spiral.add(matrix[top][i]);
-			}
-			top++;
-			for (int i = top; i <= bottom; i++) {
-				spiral.add(matrix[i][right]);
-			}
-			right--;
-			if (top <= bottom) {
-				for (int i = right; i >= left; i--) {
-					spiral.add(matrix[bottom][i]);
-				}
-				bottom--;
-			}
-			if (left <= right) {
-				for (int i = bottom; i >= top ; i--) {
-					spiral.add(matrix[i][left]);
-				}
-				left++;
-			}
-		}
-		return spiral;
-	}
+	// static ArrayList<Integer> spiralMatrix(int matrix[][], int n, int m) {
+	// 	ArrayList<Integer> spiral = new ArrayList<Integer>();
+	// 	int left = 0;
+	// 	int right = m - 1;
+	// 	int top = 0;
+	// 	int bottom = n - 1;
+	// 	while (top <= bottom && left <= right) {
+	// 		for (int i = left; i <= right; i++) {
+	// 			spiral.add(matrix[top][i]);
+	// 		}
+	// 		top++;
+	// 		for (int i = top; i <= bottom; i++) {
+	// 			spiral.add(matrix[i][right]);
+	// 		}
+	// 		right--;
+	// 		if (top <= bottom) {
+	// 			for (int i = right; i >= left; i--) {
+	// 				spiral.add(matrix[bottom][i]);
+	// 			}
+	// 			bottom--;
+	// 		}
+	// 		if (left <= right) {
+	// 			for (int i = bottom; i >= top ; i--) {
+	// 				spiral.add(matrix[i][left]);
+	// 			}
+	// 			left++;
+	// 		}
+	// 	}
+	// 	return spiral;
+	// }
+
+	// 14. Pascal Triangle - 3 varations
+	// Variation 1 - return single element at postion (given row , column)
+	// static long nCr(int n, int r) {
+    //     long res = 1;
+    //     for (int i = 0; i < r; i++) {
+    //         res = res * (n - i);
+    //         res = res / (i + 1);
+    //     }
+    //     return res;
+    // }
+    // static int pascalTriangle(int r, int c) {
+    //     int element = (int) nCr(r - 1, c - 1);
+    //     return element;
+    // }
+	// or ----------------------
+	// static int pascalTriangleRowColElement(int row, int col) {
+	// 	int n = row - 1; int r = col - 1;
+    //     long res = 1;
+
+    //     for (int i = 0; i < r; i++) {
+    //         res = res * (n - i);
+    //         res = res / (i + 1);
+	// 		// res = (res * (n - i)) / (i + 1);
+
+    //     }
+
+    //     return (int) res;
+    // }
+
+	// Variation 2 - 
+
+
 }
