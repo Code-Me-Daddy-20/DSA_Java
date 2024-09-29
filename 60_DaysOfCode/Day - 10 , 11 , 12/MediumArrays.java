@@ -53,9 +53,12 @@ public class MediumArrays {
 		// int r = 5; 
         // int c = 3;
         // System.out.println("The element at position (r,c) is: " + pascalTriangleRowColElement(r, c));
-		
-		int n = 6;
-		pascalTriangleNRow(n);
+		// int n = 6;
+		// pascalTriangleNRow(n);
+		// int n = 3;
+		// System.out.println(pascalTriangle(n));
+
+
 	}
 
 	// 1. Two Sum
@@ -526,5 +529,23 @@ public class MediumArrays {
 	// 	}
 	// }
 
+	// Variation 3 - Print entire pascal triangle
+	// static List<List<Integer>> pascalTriangle(int n){
+	// 	List<List<Integer>> ans = new ArrayList<List<Integer>>();
+	// 	for(int row = 1; row <= n; row++){
+	// 		ans.add(pascalTriangleNRow(row));
+	// 	}
+	// 	return ans;
+	// }
+	// static List<Integer> pascalTriangleNRow(int n) {
+	// 	int ele = 1;
+	// 	List<Integer> ansRow = new ArrayList<Integer>();
+	// 	ansRow.add(1);
+	// 	for (int c = 1; c < n; c++) {
+	// 		ele = (ele * (n - c)) / c;
+	// 		ansRow.add(ele);
+	// 	}
+	// 	return ansRow;
+	// }
 
 }
