@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MediumArrays {
 	public static void main(String[] args) {
-		int arr[] = { 2, 1, 5, -4, -1, 4, 6 };
+		// int arr[] = { 2, 1, 5, -4, -1, 4, 6 };
 		// Arrays.sort(arr);
 		// int n = arr.length;
 		// int target = 14;
@@ -56,7 +56,10 @@ public class MediumArrays {
 		// int n = 3;
 		// System.out.println(pascalTriangle(n));
 
-		System.out.println(largestSubarraywithSum0(arr));
+		// System.out.println(largestSubarraywithSum0(arr));
+
+		int nums[] = {3,2,3};
+		System.out.println(majorityElementn3(nums));
 
 	}
 
@@ -558,23 +561,69 @@ public class MediumArrays {
 	// }
 
 	// 15. Largest Subarray with Sum 0
-	static int largestSubarraywithSum0(int arr[]) {
-		HashMap<Integer, Integer> hp = new HashMap<>();
-		int sum = 0, max = 0;
-		for (int i = 0; i < arr.length; i++) {
-			sum += arr[i];
-			if (sum == 0)
-				max = i + 1;
-			else {
-				if (hp.get(sum) != null)
-					max = Math.max(max, i - hp.get(sum));
-				else
-					hp.put(sum, i);
-			}
-		}
-		return max;
-	}
+	// static int largestSubarraywithSum0(int arr[]) {
+	// 	HashMap<Integer, Integer> hp = new HashMap<>();
+	// 	int sum = 0, max = 0;
+	// 	for (int i = 0; i < arr.length; i++) {
+	// 		sum += arr[i];
+	// 		if (sum == 0)
+	// 			max = i + 1;
+	// 		else {
+	// 			if (hp.get(sum) != null)
+	// 				max = Math.max(max, i - hp.get(sum));
+	// 			else
+	// 				hp.put(sum, i);
+	// 		}
+	// 	}
+	// 	return max;
+	// }
 
 	//16. Maximum Product Subarray
+
+	//17. Majority element (n/3)
+	static List<Integer> majorityElementn3(int[] nums) {
+        Integer mj1 = 0 ;Integer mj2 = 0;
+        int c1 = 0; int c2 = 0;
+
+        for (int num : nums) {
+            if (num == mj1) {
+                c1++;
+            } else if (num == mj2) {
+                c2++;
+            } else if (c1 == 0) {
+                mj1 = num;
+                c1++;
+            } else if (c2 == 0) {
+                mj2 = num;
+                c2++;
+            } else {
+                c1--;
+                c2--;
+            }
+        }
+
+        c1 = 0;
+        c2 = 0;
+
+        for (int num : nums) {
+            if (num == mj1) {
+                c1++;
+            } else if (num == mj2) {
+                c2++;
+            }
+        }
+
+        List<Integer> res = new ArrayList<>();
+        int n = nums.length;
+
+        if (c1 > n / 3) {
+            res.add(mj1);
+        }
+        if (c2 > n / 3) {
+            res.add(mj2);
+        }
+
+        return res;        
+    }
 
 }
